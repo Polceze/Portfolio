@@ -2080,20 +2080,33 @@
         
         // Form submission
         const contactForm = document.getElementById('contactForm');
-        
-        contactForm.addEventListener('submit', (e) => {
+
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
+            const formData = new FormData(contactForm);
+            const formObject = Object.fromEntries(formData.entries());
             
-            console.log('Form submitted:', { name, email, subject, message });
+            console.log('Form submitted:', formObject);
             
-            alert(`Thank you, ${name}! Your message has been sent. I'll get back to you soon.`);
-            
-            contactForm.reset();
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    alert(`Thank you, ${formObject.name}! Your message has been sent. I'll get back to you soon.`);
+                    contactForm.reset();
+                } else {
+                    alert('Sorry, there was an error sending your message. Please try again.');
+                }
+            } catch (error) {
+                alert('Sorry, there was an error sending your message. Please try again.');
+            }
         });
         
         // Set active navigation link based on current page
