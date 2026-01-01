@@ -341,11 +341,11 @@
 
         .hero-image {
             position: absolute;
-            right: 20%; /* Reduced from 5% to bring photo more to the left */
+            right: 20%;
             top: 50%;
             transform: translateY(-50%);
-            width: 35%; /* Reduced from 45% for better balance */
-            max-width: 350px; /* Increased for better visibility */
+            width: 35%;
+            max-width: 350px;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
@@ -363,17 +363,18 @@
         #skills {
             background-color: var(--dark);
         }
-        
+
         .skills-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 30px;
+            grid-auto-rows: minmax(350px, auto);
         }
 
         body.light-mode .skill-card {
             background: var(--darker);
         }
-        
+
         .skill-card {
             background: var(--gray);
             border-radius: 10px;
@@ -383,31 +384,33 @@
             border: 1px solid var(--border-light);
             position: relative;
             overflow: hidden;
-            min-height: 300px;
+            height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        
+
         .skill-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
             border-color: var(--primary-color);
+            overflow: hidden;
         }
-        
+
         .skill-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 15px;
             transition: var(--transition);
         }
-        
+
         .skill-card h3 {
             color: var(--text-lighter);
             transition: var(--transition);
+            margin-bottom: 15px;
         }
-        
+
         .skill-details {
             position: absolute;
             top: 0;
@@ -415,42 +418,52 @@
             width: 100%;
             height: 100%;
             background: var(--dark);
-            padding: 20px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(10px);
             transition: var(--transition);
             text-align: left;
+            border-radius: 10px;
+            overflow-y: auto;
+            padding-top: 30px;
         }
-        
+
         .skill-card:hover .skill-details {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         .skill-card:hover .skill-icon,
         .skill-card:hover h3 {
             opacity: 0;
         }
-        
+
         .skill-details h4 {
             color: var(--primary-color);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            background: transparent;
+            box-shadow: none;
         }
-        
+
         .skill-details ul {
             list-style: none;
             padding-left: 20px;
+            margin: 0;
+            padding-top: 0;
         }
-        
+
         .skill-details li {
             position: relative;
-            margin-bottom: 8px;
-            font-size: 1rem;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
-        
+
         .skill-details li::before {
             content: "•";
             color: var(--primary-color);
@@ -458,6 +471,21 @@
             left: -15px;
         }
 
+        /* Scrollbar styling */
+        .skill-details::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .skill-details::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .skill-details::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+        
         /* ===== ABOUT SECTION ===== */
         #about {
             background-color: var(--dark);
@@ -592,7 +620,6 @@
             font-style: italic;
         }
 
-        /* Replace with actual images */
         .tab-image img {
             width: 100%;
             max-width: 400px;
@@ -959,7 +986,7 @@
             
             /* ===== SKILLS SECTION TABLET OPTIMIZATIONS ===== */
             .skills-container {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3-4 */
+                grid-template-columns: repeat(2, 1fr);
                 gap: 25px;
             }
             
@@ -1610,6 +1637,7 @@
                             <ul>
                                 <li>Node.js & Express.js</li>
                                 <li>Python, Flask & Django</li>
+                                <li>Java (Spring Boot)</li>
                                 <li>RESTful APIs</li>
                                 <li>Authentication & Authorization</li>
                                 <li>API Integration</li>
@@ -1626,9 +1654,10 @@
                             <ul>
                                 <li>React</li>
                                 <li>JavaScript</li>
+                                <li>Next.js</li>
                                 <li>HTML5</li>
                                 <li>CSS3</li>
-                                <li>Responsive Design</li>
+                                <li>Responsive UI</li>
                             </ul>
                         </div>
                     </div>
@@ -1657,9 +1686,9 @@
                             <h4>Development Tools</h4>
                             <ul>
                                 <li>Git & GitHub</li>
-                                <li>Netlify & Vercel</li>
-                                <li>Render & Railway</li>
-                                <li>GitHub Pages</li>
+                                <li>Cloud (AWS S3, Firebase, Supabase)</li>
+                                <li>Code debugging and maintenance</li>
+                                <li>Deployment and version control</li>
                                 <li>CI/CD Concepts</li>
                             </ul>
                         </div>
@@ -1704,7 +1733,6 @@
                             <div class="tab-image">
                                 <div class="image-placeholder">
                                     <i class="fas fa-rocket" style="font-size: 4rem; color: var(--primary-color);"></i>
-                                    <!-- <p>Your journey photo</p> -->
                                 </div>
                             </div>
                         </div>
@@ -1721,7 +1749,6 @@
                             <div class="tab-image">
                                 <div class="image-placeholder">
                                     <i class="fas fa-lightbulb" style="font-size: 4rem; color: var(--primary-color);"></i>
-                                    <!-- <p>Your approach photo</p> -->
                                 </div>
                             </div>
                         </div>
@@ -1738,7 +1765,6 @@
                             <div class="tab-image">
                                 <div class="image-placeholder">
                                     <i class="fas fa-bullseye" style="font-size: 4rem; color: var(--primary-color);"></i>
-                                    <!-- <p>Your focus photo</p> -->
                                 </div>
                             </div>
                         </div>
@@ -1755,7 +1781,6 @@
                             <div class="tab-image">
                                 <div class="image-placeholder">
                                     <i class="fas fa-music" style="font-size: 4rem; color: var(--primary-color);"></i>
-                                    <!-- <p>Your interests photo</p> -->
                                 </div>
                             </div>
                         </div>
