@@ -659,7 +659,7 @@
 
       .projects-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
       }
 
@@ -670,11 +670,12 @@
         transition: var(--transition);
         border: 1px solid var(--border-light);
         position: relative;
-        min-height: 500px;
+        display: flex;
+        flex-direction: column;
       }
 
       .project-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         z-index: 10;
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         border-color: var(--primary-color);
@@ -682,11 +683,11 @@
 
       .project-card:hover .project-content {
         opacity: 0;
-        transform: translateY(-20px);
+        transform: translateY(10px);
       }
 
       .project-image {
-        height: 200px;
+        height: 280px;
         background: linear-gradient(
           45deg,
           var(--primary-color),
@@ -699,6 +700,7 @@
         color: var(--text-lighter);
         overflow: hidden;
         position: relative;
+        flex-shrink: 0;
       }
 
       .project-image img {
@@ -711,7 +713,7 @@
       }
 
       .project-card:hover .project-image img {
-        transform: scale(1.05);
+        transform: scale(1.04);
       }
 
       .project-image:hover {
@@ -719,18 +721,27 @@
       }
 
       .project-content {
-        padding: 25px;
+        padding: 16px 20px;
         position: relative;
         z-index: 2;
         transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        flex-shrink: 0;
       }
 
       .project-content h3 {
         color: var(--text-lighter);
+        margin-bottom: 2px;
+        font-size: 1rem;
       }
 
       .project-content p {
         color: var(--light);
+        font-size: 0.85rem;
+        margin-bottom: 0;
       }
 
       /* Updated project links positioning */
@@ -772,12 +783,13 @@
         background: var(--dark);
         padding: 25px;
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(15px);
         transition: var(--transition);
         display: flex;
         flex-direction: column;
         justify-content: center;
-        z-index: 1;
+        z-index: 3;
+        border-radius: 10px;
       }
 
       .project-card:hover .project-details {
@@ -1159,7 +1171,7 @@
         }
 
         .projects-grid {
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
@@ -1400,6 +1412,14 @@
         .project-links {
           flex-direction: column;
           gap: 10px;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-image {
+          height: 220px;
         }
 
         .about-tabs {
