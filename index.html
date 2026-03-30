@@ -697,6 +697,21 @@
         justify-content: center;
         font-size: 4rem;
         color: var(--text-lighter);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
       }
 
       .project-image:hover {
@@ -1885,7 +1900,11 @@
           <div class="projects-grid">
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-brain"></i>
+                <img
+                  src="assets/screenshots/reviseai.png"
+                  alt="ReviseAI screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>ReviseAI</h3>
@@ -1923,7 +1942,11 @@
             </div>
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-tree"></i>
+                <img
+                  src="assets/screenshots/reflourish.png"
+                  alt="reFlourish screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>reFlourish</h3>
@@ -1961,7 +1984,11 @@
             </div>
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-graduation-cap"></i>
+                <img
+                  src="assets/screenshots/quizzar.png"
+                  alt="Quizzar screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>Quizzar</h3>
@@ -2002,7 +2029,11 @@
             </div>
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-comments"></i>
+                <img
+                  src="assets/screenshots/chitchitchat.png"
+                  alt="Chit-chit-chat screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>Chit-chit-chat</h3>
@@ -2040,7 +2071,11 @@
             </div>
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-database"></i>
+                <img
+                  src="assets/screenshots/myrdbms.png"
+                  alt="MyRDBMS screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>MyRDBMS</h3>
@@ -2078,7 +2113,11 @@
             </div>
             <div class="project-card">
               <div class="project-image">
-                <i class="fas fa-clipboard-list"></i>
+                <img
+                  src="assets/screenshots/taskman.png"
+                  alt="TaskMan screenshot"
+                  onerror="this.style.display='none'"
+                />
               </div>
               <div class="project-content">
                 <h3>TaskMan</h3>
